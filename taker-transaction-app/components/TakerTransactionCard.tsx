@@ -8,6 +8,32 @@ import { Button } from "./button";
 // Define Polygon RPC endpoint
 const POLYGON_RPC = "https://polygon-rpc.com/";
 
+/**
+ * TakerTransactionCard Component
+ *
+ * A component that allows users to search for and view transaction details on the Polygon network.
+ * It provides an interface for entering a transaction hash and displays relevant transaction information
+ * such as sender, recipient, value, and gas fee.
+ *
+ * @component
+ * @returns {JSX.Element} A card UI with transaction search and details display functionality
+ *
+ * @example
+ * ```tsx
+ * <TakerTransactionCard />
+ * ```
+ *
+ * @remarks
+ * The component manages several states:
+ * - txHash: Stores the transaction hash input by the user
+ * - transaction: Stores the fetched transaction data
+ * - loading: Indicates whether a transaction fetch is in progress
+ * - error: Stores error messages if transaction fetching fails
+ *
+ * It connects to the Polygon network using ethers.js to retrieve transaction data.
+ * When transaction data is successfully retrieved, it displays wallet addresses,
+ * transaction value in MATIC, and gas fee in Gwei.
+ */
 export default function TakerTransactionCard() {
   const [txHash, setTxHash] = useState("");
   const [transaction, setTransaction] = useState<any>(null);
